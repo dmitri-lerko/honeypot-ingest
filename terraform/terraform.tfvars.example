@@ -1,0 +1,19 @@
+# Copy this file to terraform.tfvars and fill in your values
+
+project_id  = "your-gcp-project-id"
+region      = "europe-west2"
+environment = "dev"
+
+# CORS origins allowed to call the ingest endpoint
+allowed_origins = [
+  "https://deploy.live",
+  "https://www.deploy.live",
+]
+
+# Buffer settings
+buffer_size    = 100
+flush_interval = "1m"
+
+# Cloud Run scaling
+cloud_run_min_instances = 0
+cloud_run_max_instances = 10
