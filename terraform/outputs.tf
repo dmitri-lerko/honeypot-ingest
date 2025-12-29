@@ -32,3 +32,13 @@ output "ingest_endpoint" {
   description = "Full URL for the ingest endpoint"
   value       = "${google_cloud_run_v2_service.ingest.uri}/ingest"
 }
+
+output "access_logs_table" {
+  description = "BigQuery table for Cloud Run access logs"
+  value       = "${var.project_id}.${google_bigquery_dataset.fingerprints.dataset_id}.run_googleapis_com_requests"
+}
+
+output "log_sink_name" {
+  description = "Cloud Logging sink name"
+  value       = google_logging_project_sink.cloud_run_to_bq.name
+}
